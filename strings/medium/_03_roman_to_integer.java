@@ -5,7 +5,6 @@ import java.util.HashMap;
 public class _03_roman_to_integer {
     public static void main(String[] args) {
         System.out.println(romanToInt("MCMXCIV"));
-        String s = "Bitch_bro";
     }
 
     public static int romanToInt(String s) {
@@ -28,7 +27,6 @@ public class _03_roman_to_integer {
                 num += map.get(c[i+1]) - map.get(c[i]);
                 i++;
             }
-            System.out.println(num);//==
         }
         return num;
     }
