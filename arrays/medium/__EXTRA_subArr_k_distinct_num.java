@@ -2,7 +2,7 @@ package arrays.medium;
 
 import java.util.HashMap;
 
-public class __EXTRA_subArr_k_diff_num {
+public class __EXTRA_subArr_k_distinct_num {
     
     public int subarraysWithKDistinct(int[] nums, int k) {
         return greatOrEqual(nums, k) - greatOrEqual(nums, k+1);
