@@ -2,7 +2,7 @@ package arrays.medium;
 
 import java.util.Arrays;
 
-public class setMatrixZero {
+public class _11_setMatrixZero {
 
     public static void main(String[] args) {
         // int[][] arr = {{1,1,1},{1,0,1},{1,1,1}};
@@ -45,3 +45,13 @@ public class setMatrixZero {
             matrix[i][column] = 0;
     }
 }
+
+
+/*
+ * Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
+
+You must do it in place.
+
+Input: matrix = [[1,1,1],[1,0,1],[1,1,1]]
+Output: [[1,0,1],[0,0,0],[1,0,1]]
+ */
