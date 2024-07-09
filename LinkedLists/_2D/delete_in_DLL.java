@@ -44,18 +44,18 @@ public class delete_in_DLL {
         }
         int cnt = 1;
         Node temp = head;
-        while (temp.next != null) {
-            cnt++;
+        while (temp != null) {
             if (cnt == k) {
-                Node element = temp.next;
-                temp.next = temp.next.next;
-                if (element.next != null) {
-                    element.next.prev = element.prev;
+                Node last = temp.prev;
+                last.next = temp.next;
+                if (temp.next != null) {
+                    temp.next.prev = temp.prev;
                 }
-                element.next = null;
-                element.prev = null;
+                temp.next = null;
+                temp.prev = null;
                 return head;
             }
+            cnt++;
             temp = temp.next;
         }
         return head;
