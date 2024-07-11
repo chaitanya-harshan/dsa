@@ -28,7 +28,7 @@ public class delete_in_LL {
         return head;
     }
 
-    public static Node removeNode(Node head, int k) {
+    public static Node removeKthNode(Node head, int k) {
         if (head == null) return head;
         if (k == 1) return head.next;
 

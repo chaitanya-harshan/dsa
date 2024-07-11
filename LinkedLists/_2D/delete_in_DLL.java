@@ -33,7 +33,7 @@ public class delete_in_DLL {
     }
 
     // Kth node
-    public static Node deleteNode(Node head, int k) {
+    public static Node deleteKthNode(Node head, int k) {
         if (head == null) return null;
         if (k == 1 && head.next == null) return null;
         if (k == 1 && head.next != null) {
@@ -46,8 +46,8 @@ public class delete_in_DLL {
         Node temp = head;
         while (temp != null) {
             if (cnt == k) {
-                Node last = temp.prev;
-                last.next = temp.next;
+                Node pre = temp.prev;
+                pre.next = temp.next;
                 if (temp.next != null) {
                     temp.next.prev = temp.prev;
                 }
@@ -61,5 +61,7 @@ public class delete_in_DLL {
         return head;
     }
 
+    // remove my value
+    // public static Node removeNodeByValue(Node head, Node ) 
 }
 
