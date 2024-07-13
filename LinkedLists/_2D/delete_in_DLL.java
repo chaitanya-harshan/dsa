@@ -5,7 +5,7 @@ public class delete_in_DLL {
         Node head = arr_to_DLL.constructDLL(new int[] {1,2,3,4,5});
         // head = removesHead(head);
         // head = removesTail(head);
-        head = deleteNode(head, 4);
+        head = deleteKthNode(head, 4);
         print_DLL.print(head);
     }
 
