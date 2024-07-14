@@ -1,12 +1,17 @@
 package _1D;
 
 public class Node{
-    int data;
-    Node next;
+    public int data;
+    public Node next;
 
-    Node(int x){
+    public Node(int x){
         data = x;
         next = null;
+    }
+
+    public Node(int x, Node next){
+        data = x;
+        next = next;
     }
 }
 
