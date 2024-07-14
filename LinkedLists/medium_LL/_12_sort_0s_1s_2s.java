@@ -1,5 +1,7 @@
 package medium_LL;
 
+import Node;
+
 public class _12_sort_0s_1s_2s {
     
     public static Node sortList(Node head) {

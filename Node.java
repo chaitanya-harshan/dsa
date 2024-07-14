@@ -1,4 +1,4 @@
-package medium_LL;
+
 
 public class Node {
     int data;
@@ -13,6 +13,4 @@ public class Node {
         this.data = data;
         this.next = next;
     }
-
-    
 }

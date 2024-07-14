@@ -1,4 +1,5 @@
 package medium_LL;
+import Node;
 import _1D.*;
 
 /*

@@ -14,6 +14,8 @@ Explanation: Initially the number is 152. After incrementing it by 1, the number
  */
 package medium_LL;
 
+import Node;
+
 public class _14_add_1_to_num_in_LL {
     
     public static Node addOne(Node head) {

@@ -3,8 +3,12 @@ import _1D.*;
 
 public class _15_add_2_nums_in_LL {
     public static void main(String[] args) {
-        int[] arr1 = {2,4,3};
-        int[] arr2 = {5,6,4};
+        // int[] arr1 = {2,4,3};
+        int[] arr1 = {9,9,9,9,9,9,9};
+
+        // int[] arr2 = {5,6,4};
+        int[] arr2 = {9,9,9,9};
+
         Node l1 = arr_to_LL.constructLL(arr1);
         Node l2 = arr_to_LL.constructLL(arr2);
         print_LL.print(l1);
@@ -23,7 +27,7 @@ public class _15_add_2_nums_in_LL {
                 carry = 0;
             }
             else {
-                value = 0;
+                value = value % 10;
                 carry = 1;
             }
             Node temp = new Node(value, null);
@@ -39,12 +43,13 @@ public class _15_add_2_nums_in_LL {
                 carry = 0;
             }
             else {
-                value = 0;
+                value = value % 10;
                 carry = 1;
             }
             Node temp = new Node(value, null);
             sum.next = temp;
             sum = sum.next;
+            l1 = l1.next;
         }
         while (l2 != null) {
             int value = l2.data + carry;
@@ -52,12 +57,13 @@ public class _15_add_2_nums_in_LL {
                 carry = 0;
             }
             else {
-                value = 0;
+                value = value % 10;
                 carry = 1;
             }
             Node temp = new Node(value, null);
             sum.next = temp;
             sum = sum.next;
+            l2 = l2.next;
         }
         if ( carry == 1) {
             Node temp  = new Node(1, null);
