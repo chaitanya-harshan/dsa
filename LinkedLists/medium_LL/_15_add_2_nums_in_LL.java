@@ -17,7 +17,50 @@ public class _15_add_2_nums_in_LL {
         print_LL.print(head);
     }
 
+    // Both are same logic but 2nd one is bigger code
+
     public static Node addTwoNumbers(Node l1, Node l2) {
+        Node sum = new Node(-1, null);
+        Node head = sum;
+        int carry = 0;
+
+        while (l1 != null || l2 != null || carry == 1) {
+            int value = 0;
+            
+            if (l1 != null) {
+                value += l1.data;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                value += l2.data;
+                l2 = l2.next;
+            }
+            value += carry;
+
+            if (value < 10) carry = 0;
+            else {
+                value = value % 10;
+                carry = 1;
+            }
+
+            Node temp = new Node(value, null);
+            sum.next = temp;
+            sum = sum.next;
+        }
+
+        return head.next;
+    }
+
+    /*
+     * 
+     * 
+     * 
+     * 
+     * 
+     */
+
+     
+    public static Node addTwoNumbers1(Node l1, Node l2) {
         Node sum = new Node(-1, null);
         Node head = sum;
         int carry = 0;
@@ -71,4 +114,5 @@ public class _15_add_2_nums_in_LL {
         }
         return head.next;
     }
+
 }
