@@ -13,8 +13,7 @@ Output:
 Explanation: Initially the number is 152. After incrementing it by 1, the number becomes 153.
  */
 package medium_LL;
-
-import Node;
+import _1D.*;
 
 public class _14_add_1_to_num_in_LL {
     

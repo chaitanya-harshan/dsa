@@ -1,6 +1,5 @@
 package medium_LL;
-
-import Node;
+import _1D.*;
 
 public class _12_sort_0s_1s_2s {
     
