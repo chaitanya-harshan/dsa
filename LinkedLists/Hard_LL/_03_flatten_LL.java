@@ -8,13 +8,30 @@ Each of these child linked lists is in sorted order and connected by 'child' poi
 
 Your task is to flatten this linked such that all nodes appear in a single layer or level in a 'sorted order'.
  */
+
+ 
+//    head -> [3] -> [2] -> [1] -> [4] -> [5] -> NULL
+//             |      |      |      |      | 
+//             v      v      v      v      v 
+//            NULL   [10]   [7]    [9]    [6]
+//                     |     |      |      |
+//                     v     v      v      v
+//                    NULL  [11]   NULL   [8]
+//                           |             |
+//                           v             v
+//                          [12]          NULL
+//                           |
+//                           v
+//                          NULL
+
+
 package Hard_LL;
 
 class Node {
 
-    public int data;
-    public Node next;
-    public Node child;
+     int data;
+     Node next;
+     Node child;
 
     Node() {
         this.data = 0;
@@ -47,6 +64,7 @@ public class _03_flatten_LL {
         return mergeLL(head, merged);
     }
 
+    // similar to merging from merge sort
     private static Node mergeLL(Node t1, Node t2) {
         Node dummy = new Node(-1);
         Node tail = dummy;
