@@ -26,4 +26,5 @@ public class _03_remove_only_duplicates_from_sorted_DLL {
             else temp = temp.next;
         }
         return head;
+    }
 }
