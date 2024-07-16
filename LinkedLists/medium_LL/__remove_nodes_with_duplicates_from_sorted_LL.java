@@ -1,6 +1,11 @@
+/*
+ * Given the head of a sorted linked list, delete all nodes that have duplicate numbers, 
+ * leaving only distinct numbers from the original list. 
+ * Return the linked list sorted as well
+ */
 package medium_LL;
 
-public class __remove_duplicates_from_sorted_LL {
+public class __remove_nodes_with_duplicates_from_sorted_LL {
     
     public static ListNode deleteDuplicates(ListNode head) {
         if (head == null) return null;
