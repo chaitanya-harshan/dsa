@@ -65,7 +65,7 @@ public class _03_flatten_LL {
     }
 
     // similar to merging from merge sort
-    private static Node mergeLL(Node t1, Node t2) {
+    static Node mergeLL(Node t1, Node t2) {
         Node dummy = new Node(-1);
         Node tail = dummy;
 

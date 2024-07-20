@@ -1,4 +1,4 @@
-package recursion;
+package recursion.basic;
 
 public class numbers {
     public static void main(String[] args) {

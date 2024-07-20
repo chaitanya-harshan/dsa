@@ -2,7 +2,7 @@ package strings.medium;
 
 public class _04_atoi {
     public static void main(String[] args) {
-        System.out.println(myAtoi("42"));
+        System.out.println(myAtoi("  -123-456"));
     }
 
     public static int myAtoi(String s) {
