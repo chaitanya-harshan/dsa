@@ -35,7 +35,7 @@ public class _01_binary_num {
             str += '0';
             generateBinaryStrings(str, k, n+1);
         } 
-        else if (str.charAt(str.length()-1) == '0') {
+        else {
             generateBinaryStrings(str+'0', k, n+1);
             generateBinaryStrings(str+'1', k, n+1);
         }
