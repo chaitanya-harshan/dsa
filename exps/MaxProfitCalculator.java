@@ -1,3 +1,4 @@
+package exps;
 import java.util.Arrays;
 
 public class MaxProfitCalculator {
