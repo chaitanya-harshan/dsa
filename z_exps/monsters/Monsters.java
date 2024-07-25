@@ -1,4 +1,4 @@
-package exps.monsters;
+package z_exps.monsters;
 
 import java.util.HashMap;
 import java.util.PriorityQueue;

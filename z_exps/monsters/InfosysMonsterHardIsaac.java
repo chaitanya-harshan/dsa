@@ -1,8 +1,8 @@
-package exps.monsters;
+package z_exps.monsters;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class InfosysMonsterHard {
+public class InfosysMonsterHardIsaac {
     public static void main(String[] args) {
         //taking the inputs
         Scanner sc = new Scanner(System.in);
