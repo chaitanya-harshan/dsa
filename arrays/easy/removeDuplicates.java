@@ -10,9 +10,21 @@ public class removeDuplicates {
         System.out.println(Arrays.toString(arr));
     }
 
+    public static int removeDuplicates(int[] nums) {
+        int i = 0;
+        for (int j = 1; j<nums.length; j++) {
+            if (nums[i] != nums[j]) {
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        return i+1;
+    }
+
+
     // better code is in leetcode and striver 
     // it's much simplier then this         https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
-    static int removeDuplicates(int[] nums) {
+    static int removeDuplicates1(int[] nums) {
         int correction = 0;
         for (int i = 1; i<nums.length; i++) {
             int check = nums[i-1];
