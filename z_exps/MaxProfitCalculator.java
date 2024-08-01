@@ -1,4 +1,4 @@
-package exps;
+package z_exps;
 import java.util.Arrays;
 
 public class MaxProfitCalculator {
