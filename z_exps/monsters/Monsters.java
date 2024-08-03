@@ -1,6 +1,5 @@
 package z_exps.monsters;
 
-import java.util.HashMap;
 import java.util.PriorityQueue;
 
 
@@ -16,13 +15,14 @@ public class Monsters {
     }
 
     public static int defeatMonsters(int[] monsPow, int[] bonus, int exp) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> map.get(b)-map.get(a));
+        // HashMap<Integer, Integer> map = new HashMap<>();// ~~~~~~~~~~~~~~~~~~~not needed
+        // PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> map.get(b)-map.get(a)); // ~~~~ not needed
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> monsPow[b] - monsPow[a]);
         int count = 0;
 
         // iterating through monsters power array
         for (int i = 0; i < monsPow.length; i++) {
-            map.put(i, monsPow[i]);
+            // map.put(i, monsPow[i]);// ~~~~~~~~~~~~~~~~~~not needed
 
             // if monsters power is more then my exp i'll add them to my pq and skip them
             if (exp < monsPow[i]) {
