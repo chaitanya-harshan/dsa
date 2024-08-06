@@ -1,3 +1,5 @@
+// Philosophy - checking for every char from middle 
+
 /*
  * Given a string s, return the longest palindromic substring in s.
 Example 1: Input: s = "babad" 
@@ -7,15 +9,10 @@ Example 2: Input: s = "cbbd"
 Output: "bb"
  */
 
-package strings.medium;
+// https://leetcode.com/problems/longest-palindromic-substring/description/
 
-public class _06_long_plaindrome_subString {
-
-    public static void main(String[] args) {
-        String str = "babad";
-        System.out.println(longestPalindrome(str));
-    }
-
+public class _05_largest_palindrom_string {
+    
     public static String longestPalindrome(String s) {
         int start = 0, end = 0;
         for (int i=0; i<s.length(); i++) {
@@ -32,8 +29,7 @@ public class _06_long_plaindrome_subString {
     }
 
     static int expandFromMiddle(String s, int left, int right) {
-        // if (right >= s.length()) return 1;
-        // for when i = n then i+1 goes out of bounds
+        // if (right >= s.length()) return 1;             for when i = n then i+1 goes out of bounds
         // but this line is not even needed as it already checks in while loop
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
