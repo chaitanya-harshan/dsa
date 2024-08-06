@@ -1,10 +1,12 @@
-import java.util.HashMap;
+// https://leetcode.com/problems/climbing-stairs/description/
+// https://www.youtube.com/watch?v=Y0lT9Fck7qI
+/*
+ * You are climbing a staircase. It takes n steps to reach the top.
 
-/**
- * climbing_stairs
- * 
- * https://www.youtube.com/watch?v=Y0lT9Fck7qI
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
  */
+
+import java.util.HashMap;
 
 // bottom up aproach dp problem
 
@@ -23,7 +25,7 @@ import java.util.HashMap;
  *                           two
  */
 
-public class climbing_stairs {
+public class _01_climbing_stairs {
     public static void main(String[] args) {
         System.out.println(climbStairs(44));
     }
@@ -32,8 +34,7 @@ public class climbing_stairs {
     // bottom up optimal
     public static int climbStairs(int n) {
         int one = 1, two = 1;
-        for (int i=n-1; i>0; i--
-        ) {
+        for (int i=n-1; i>0; i--) { // actually u can take i=n-2 i>=0
             int temp = one;
             one = one + two;
             two = temp;
