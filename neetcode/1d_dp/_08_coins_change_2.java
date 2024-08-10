@@ -19,10 +19,12 @@ import java.util.Arrays;
 public class _08_coins_change_2 {
 
     public static void main(String[] args) {
-        int[] coins = {186,419,83,408};
-        System.out.println(coinChange(coins, 6249));
+        // int[] coins = {186,419,83,408};
+        // System.out.println(coinChange(coins, 6249));
+        System.out.println(coinChange(new int[]{1,4,5}, 13));
+        // 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+        //  3  3  3  2 2 2 3 2 1 1 3 2 1 0
     }
-
     public static int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
         Arrays.fill(dp, Integer.MAX_VALUE);
@@ -30,7 +32,7 @@ public class _08_coins_change_2 {
         for (int i=1; i <= amount; i++) {
             int MinCoins = amount+1; // or INT MAX
             for (int j=0; j<coins.length; j++) {
-                if (coins[j] <= i) {
+                if (coins[j] <= i) { // checking all combiantions by starting with all coins less then amount
                     MinCoins = Math.min(MinCoins, 1 + dp[i-coins[j]] );
                      // all the 0,1...,n-1 values are processed before comming to i=n
                 }
@@ -41,13 +43,20 @@ public class _08_coins_change_2 {
     }
     // every amount from 0 - amount is evaluated even if some of the nums<amount are not possible.
     // If amount 'i' can't be found then then dp[i]/Mincoins = (amount+1){max value}
+
     // If you're wondering how will it take repeat coins of the same coin.. consider 1st example
     // you will see that 7 already contains a 5 coin and you use a 5 & {7 coin} for getting 12.
+    
+    // *************
+    // [1,3,4,5] amount = 7   = 5+1+1 or 4+3
+    // ** Hence it's not always guarenteed that taking the max coin <= amount will give u min coins. thats why you need to check with
+    // all the coins
 
     /* consider for better understanding:
-     [3,4,5] , 12 --> dp[12-5] = dp[7] = dp[7-4] = dp[3] = 1
+     [3,4,5] , amt = 12 --> dp[12-5] = dp[7] = dp[7-4] = dp[3] = 1
      
-     [2,4] , 7 --> dp[7-4] = dp[3] = dp[3-2] = dp[1] = XX no solution
+     [2,4] , amt = 7 --> dp[7-4] = dp[3] = dp[3-2] = dp[1] = XX no solution
+
      0   1   2   3   4   5   6   7
                1+[1]   1+[1]   1+[3]
      0   8   1 (1+8) 1 (1+8) 2 (1+8)

@@ -1,8 +1,6 @@
 /*
  * Given an integer, K. Generate all binary strings of size k without consecutive 1’s.
 
-Examples: 
-
 Input : K = 3  
 Output : 000 , 001 , 010 , 100 , 101 
 
