@@ -9,7 +9,7 @@ Output :0000 0001 0010 0100 0101 1000 1001 1010
  */
 package recursion.lec2;
 
-public class _01_binary_num {
+public class _01_binary_strings {
     public static void main(String[] args) {
         generate(3);
         generate(4);
