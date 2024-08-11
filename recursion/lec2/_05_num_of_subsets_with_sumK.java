@@ -11,8 +11,9 @@ package recursion.lec2;
 public class _05_num_of_subsets_with_sumK {
     
     public static void main(String[] args) {
-        int[] nums = {5,2,3,10,6,8};
-        System.out.println(perfectSum(nums, nums.length, 10));
+        // int[] nums = {5,2,3,10,6,8};
+		int[] nums = {3,5,6,7};
+        System.out.println(perfectSum(nums, nums.length, 9));
     }
 
     // use % 1000000007 for larger numbers.
