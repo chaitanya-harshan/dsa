@@ -6,7 +6,7 @@ import java.util.HashSet;
 /**
  * union
  */
-public class union {
+public class union_of_arrays {
 
     public static void main(String[] args) {
             int[] arr1 = {1,2,3,4,5};
