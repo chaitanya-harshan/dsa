@@ -1,3 +1,5 @@
+package bit_manipulation.easy;
+
 public class _06_set_rightmost_0_to_1 {
     
     public static int setBit(int n) {
