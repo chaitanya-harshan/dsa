@@ -7,6 +7,8 @@
 // 10-1   1001
 
 // & --> 0100 which is != 0
+package bit_manipulation.easy;
+
 
 public class _04_power_of_2 {
     

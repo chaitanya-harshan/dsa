@@ -1,3 +1,5 @@
+package bit_manipulation.easy;
+
 public class _03_even_odd {
     public static void main(String[] args) {
         System.out.println(oddEven(8));

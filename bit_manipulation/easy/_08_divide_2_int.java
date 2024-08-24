@@ -4,28 +4,38 @@ public class _08_divide_2_int {
     
     public static void main(String[] args) {
         System.out.println(divide(-2147483648, -1));
-        System.out.println(divide(8, 2));
         System.out.println(divide(-8, 2));
+        System.out.println(divide(7, -3));
     }
 
     public static int divide(int dividend, int divisor) {
-        if (dividend == Integer.MIN_VALUE && divisor == -1) return Integer.MAX_VALUE;
-        if (dividend == Integer.MIN_VALUE && divisor == 1) return Integer.MIN_VALUE;
+        if (dividend == divisor) return 1;
 
-        int quotient = 0;
-        int d = Math.abs(dividend), dv = Math.abs(divisor);
+        long quotient = 0;
+        long d = Math.abs((long)dividend), dv = Math.abs((long)divisor);
 
         while (d >= dv) {
             int shift = 0;
-            while (d >= (dv << shift)) {
+            while (d >= (dv << (shift+1)) ) {
                 shift++;
             }
-            shift--;
             d -= (dv << shift);
-            quotient += (1 << shift);
+            quotient += ((long)1 << shift);
         }
 
-        if (dividend<0 ^ divisor<0) return Math.max(-1*quotient, Integer.MIN_VALUE);
-        else return Math.min(quotient, Integer.MAX_VALUE);
+        int sign = 1;
+        if (dividend<0 ^ divisor<0) sign = -1; // xor to check if only one is negative
+        // if (dividend <= 0 && divisor > 0) sign = -1;
+        // if (dividend >= 0 && divisor < 0) sign = -1;
+
+        if (quotient > (1 << 31)-1 && sign == 1) return Integer.MAX_VALUE;
+        if (quotient > ((long)1 << 31) && sign == -1) return Integer.MIN_VALUE;
+        // i'm not if you'll understand this
+        // here u know quotient will overflow in the code submittted before so u dirctlycheck for int min
+        // if (quotient == (1 << 31) && sign == 1) return Integer.MAX_VALUE;
+        // if (quotient == (1 << 31) && sign == -1) return Integer.MIN_VALUE;
+
+        int q = (int)quotient;
+        return sign == 1 ? q : -q;
     }
 }
