@@ -1,3 +1,6 @@
+package bit_manipulation.easy;
+
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -8,6 +8,9 @@ Explanation: Binary representation of 4 is 100,
 
 https://www.geeksforgeeks.org/problems/check-whether-k-th-bit-is-set-or-not-1587115620/1
  */
+
+package bit_manipulation.easy;
+
 public class _02_check_kth_bit {
 
     public static void main(String[] args) {
