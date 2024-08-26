@@ -1,3 +1,4 @@
+package java;
 public class string {
     public static void main(String[] args) {
         String message = "  Hello Guys!!";

@@ -7,7 +7,8 @@ import java.util.List;
 public class print_subsets_without_duplicates {
     public static void main(String[] args) {
         // int[] nums = {1,2,3};
-        int[] nums = {1,2,2,3};
+        // int[] nums = {1,2,2,3};
+        int[] nums = {4,4,4,1,4};
         List<List<Integer>> list = new ArrayList<>();
         list = subsets(nums);
         for (List<Integer> inner : list) {

@@ -1,3 +1,5 @@
+package java;
+
 class Person {
     String name;
     int age;
