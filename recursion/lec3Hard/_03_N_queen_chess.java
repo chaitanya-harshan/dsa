@@ -29,6 +29,7 @@ public class _03_N_queen_chess {
         }
 
         for (int i=0; i<n; i++) {
+            // checking the hash tables for validity
             if (row[i] == 0 && diag_up[(n-1) + column-i] == 0 && diag_down[i+column] == 0) {
                 board[i][column] = 'Q';
                 // hashing 

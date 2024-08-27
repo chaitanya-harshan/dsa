@@ -6,7 +6,7 @@ package recursion.sde;
 
 import java.util.ArrayList;
 
-public class _06_kth_permutation {
+public class __kth_permutation {
     
     public String getPermutation(int n, int k) {
         ArrayList<Integer> nums = new ArrayList<>();

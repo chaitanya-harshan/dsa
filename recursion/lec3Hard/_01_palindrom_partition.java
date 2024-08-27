@@ -37,12 +37,12 @@ public class _01_palindrom_partition {
     }
 }
 
-//                                     (aabb)
-//              [a]abb ----------- [aa]bb ------ [aab]b ----- [aabb]
-//         [a]bb-----[ab]b     [b]b------[bb]       X           X
-//     [b]b---[bb]     X        [b]        |
-//     [b]      |                |      {aa,bb}
-//      |     {a,a,bb}         {aa,b,b}   
+//                                                (aabb)
+//                  [a]abb ---------------- [aa]bb ------ [aab]b ----- [aabb]
+//         [a]bb-----[ab]b----[abb]      [b]b------[bb]       X           X
+//     [b]b---[bb]     X        X         [b]        |
+//     [b]      |                          |      {aa,bb}
+//      |     {a,a,bb}                  {aa,b,b}   
 //   {a,a,b,b}
 
 
