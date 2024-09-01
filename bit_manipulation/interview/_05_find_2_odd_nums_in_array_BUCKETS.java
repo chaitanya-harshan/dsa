@@ -1,11 +1,12 @@
 // super tough because it needs a algorithm
 /*
- * 1. we need to find the diff_bit by xor which tells us that it's because of those single numbers having a 1 and 0.
+ * 1. we need to find the diff_bit by xor which tells us that it's because of 
+ * those single numbers having a 1 and 0.
  * we need to seperate the single numbers into 2 buckets using the logic that 
  */
 package bit_manipulation.interview;
 
-public class _05_find_2_odd_nums_in_array {
+public class _05_find_2_odd_nums_in_array_BUCKETS {
     
     public int[] singleNumber(int[] nums) {
         int xor = 0;
@@ -35,7 +36,8 @@ public class _05_find_2_odd_nums_in_array {
 https://leetcode.com/problems/single-number-iii/description/
 
  * 260. Single Number III
-Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
+Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice.
+ Find the two elements that appear only once. You can return the answer in any order.
 
 You must write an algorithm that runs in linear runtime complexity and uses only constant extra space.
 
