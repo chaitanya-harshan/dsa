@@ -24,6 +24,8 @@ public class converting_Array_to_ArrayList_and_List {
 
         // wont work for integer array or any primitive. 
         // int[] nums = {1, 2, 3, 4, 5};
-        // List<Integer> list = Arrays.stream(nums).boxed().collect(Collectors.toList());
+
+        // ArrayList to Array
+        String[] wordsArray = wordsList.toArray(new String[wordsList.size()]);
     }
 }
