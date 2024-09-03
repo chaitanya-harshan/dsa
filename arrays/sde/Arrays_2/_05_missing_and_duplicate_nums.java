@@ -1,3 +1,4 @@
+package arrays.sde.Arrays_2;
 /**
  * _05_missing_and_duplicate_nums
  */
