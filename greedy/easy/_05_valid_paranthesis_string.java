@@ -3,6 +3,7 @@ package greedy.easy;
 public class _05_valid_paranthesis_string {
     
     public boolean checkValidString(String s) {
+        // we solve it by finding the valid range of open and close
         int min = 0, max = 0;
         for (char c : s.toCharArray()) {
             if (c == '(') {
@@ -18,8 +19,9 @@ public class _05_valid_paranthesis_string {
                 max++;
             }
 
-            if (max < 0) return false;
-            if (min < 0) min = 0;
+            if (max < 0) return false; // case: ))((
+            if (min < 0) min = 0; // here we are basically saying ok the previous
+            // '*' must be open and not close else no. of open '(' will become negative
         }
         return min == 0;
     }

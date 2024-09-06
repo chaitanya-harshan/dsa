@@ -9,6 +9,15 @@ public class _04_majority_n_by_3 {
         int c1 = 0, c2 = 0;
         int E1 = Integer.MIN_VALUE, E2 = Integer.MIN_VALUE;
 
+        // some explanation 
+        // suppose there is a single majority and rest all diff nums and all the majority nums are in the beginning(asume): 
+        // you might think if there are more than the majority number count of non majoruty nums then they will cancell the 
+        // majority number but in the proces first it does cnt-- on encounter of some other number and then in the next iteration 
+        // it will go the take nums[i] as E1/E2, therefore it roughly means we need 2x the number of majority cnt of 
+        // non majority numbers to null the majority count which is not possible as the remaining is 1-(1/3+1) = less than 2/3. 
+        // If there are some numbers which are also similar but still less than majority cnt in the non majorty 
+        // numbers category then the number of cnt-- is even less. 
+        // so therefore if a number is majority then it will not be nullified.
         for (int i=0; i<nums.length; i++) {
             if (c1 == 0 && nums[i] != E2) {
                 E1 = nums[i];
