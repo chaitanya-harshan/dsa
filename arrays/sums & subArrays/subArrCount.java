@@ -2,7 +2,7 @@ package arrays.medium;
 
 import java.util.HashMap;
 
-public class _14_subArrCount {
+public class subArrCount {
     public int subarraySum(int[] nums, int k) {
         // you need to watch strivers video to understand
         // time stamp included in the video - 10:42
