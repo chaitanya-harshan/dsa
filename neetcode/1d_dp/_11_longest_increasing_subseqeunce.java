@@ -54,18 +54,22 @@ public class _11_longest_increasing_subseqeunce {
      *          1 7 8          9            1 7 8 9                 
      *          1     4 5 6    9            1 4 5 6 9 
      *                      -1 9           -1 9       
-     * 
-     *
      */
-
     //           1
     //           1 7
     //           1 7 8
     //           1 4 8
     //           1 4 5
     //           1 4 5 6
-    //          -1 4 5 6
-    //          -1 4 5 6 9
+    //          -1 4 5 6     --> these are wrong but u dont care as u only need length
+    //          -1 4 5 6 9   _^
+
+    // if a new small num is found it wont effect the length untill the sequence startign from that small num
+    // exceed the length variable thats why we replace the original number in the list with the small number 
+    // without giving a damn about it.
+    // now while adding these small nums int he OG sequemce if we find a bigger number than the OG seqeunce
+    // then we will add it to the end of the list and incrase the length.
+    // this means it's like we didnt even add or care about the small nums we emcpuntered before we found this big number.
 
     // it doesn't give you the sub sequence but it gives you the length becasue you replicated
     // the same space with the values

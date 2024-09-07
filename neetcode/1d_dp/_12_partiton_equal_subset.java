@@ -46,10 +46,12 @@ public class _12_partiton_equal_subset {
  * iterating from the end from nums
  * adding nums[i] + set_values to the set 
  * and then again for the next nums[i] iterating through the set and adding the nums[i] + set_values to the set
+ * we keep 0 in dp for base case. then we start summing the curr num with all the values in dp.
+ * 
  *   
- * 0
- * 0,5
- * 0,5,11,16         we will get the ans here which is 11 but lets keep on going for explantions
- * 0,5,  _,11,16,   _,10, _,21
- * 0,5,  _,11,16,   _,10, _,21,     _,_, 12,17, _,22 
+ * 0             (+5)
+ * 0,5           (+11)
+ * 0,5,  _11,16  (+5)             we will get the ans here which is 11 but lets keep on going for explantions
+ * 0,5,  _,11,16,  _,10, _,21     -> Here(0+5),(11+5)are already there in the set so we dont include it again
+ * 0,5,  _,11,16,  _,10, _,21,  _,_, 12,17, _,22 
  */
