@@ -45,44 +45,61 @@ public class _08_combination_sum2 {
     }
     
     public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(candidates);
-        // generate(result, new ArrayList<>(), 0, target, candidates);
-        backtrack2(result, new ArrayList<>(), 0, target, candidates);
-        return result;
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(candidates); // *********
+        backtrack(res, new ArrayList<>(), 0, target, candidates);
+        return res;
     }
 
-    static void generate(List<List<Integer>> result, List<Integer> list, int i, int target, int[] candidates) {
+    static void backtrack1(List<List<Integer>> res, List<Integer> list, int k, int target, int[] candidates) {
         if (target == 0) {
-            result.add(new ArrayList<>(list));
+            res.add(new ArrayList<>(list));
             return;
         }
-        if (i == candidates.length) return;
+        if (k == candidates.length) return;
 
-        if (candidates[i] <= target) {
-            list.add(candidates[i]);
-            generate(result, list, i+1, target-candidates[i], candidates);
+        if (candidates[k] <= target) {
+            list.add(candidates[k]);
+            backtrack(res, list, k+1, target-candidates[k], candidates);
             list.removeLast();
         }
+        
+        while (k+1 < candidates.length && candidates[k] == candidates[k+1]) k++;
+        backtrack(res, list, k+1, target, candidates);
 
-        while (i+1 < candidates.length && candidates[i+1] == candidates[i]) i++;
-        generate(result, list, i+1, target, candidates);
+        // ----LIKE in 3-sum & 4-sum-----
+        // k++;
+        // while (k < candidates.length && candidates[k] == candidates[k-1]) k++;
+        // backtrack(res, list, k, target, candidates);
     }
 
-    static void backtrack2(List<List<Integer>> result, List<Integer> list, int k, int target, int[] nums) {
-        // System.out.println(target +", "+list);
+//                                         abbcd
+
+//                                          [],0
+//                  [a],1                                         [],1
+//       [ab],2              [a],3{2}x              [b],2                   [],3{2}x
+// [abb],3  [ab],3       [ac],4  [a],4          [bb],3  [b],3{2}x      [c],4    [],4 
+
+
+
+    // recursion tree photo in images
+    static void backtrack(List<List<Integer>> res, List<Integer> list, int k, int target, int[] candidates) {
         if (target == 0) {
-            result.add(new ArrayList<>(list));
+            res.add(new ArrayList<>(list));
             return;
         }
-        for (int i = k; i < nums.length; i++) {
-            if (i > k && nums[i] == nums[i-1]) continue;
-            if (nums[k] > target) break;
+        // if (k == candidates.length) return; // not needed as k<len is already checked in for-loop
 
-            list.add(nums[k]);
-            // System.out.println(i+","+target+"-"+nums[k]+" "+list+"~~~~~~~~~~~~~~~~~`");
-            backtrack2(result, list, i+1, target-nums[i], nums);
-            list.removeLast();
+        // k = start index
+        for (int i=k; i < candidates.length; i++) {
+            if (i != k && candidates[i] == candidates[i-1]) continue;
+
+            if (candidates[i] <= target) {
+                list.add(candidates[i]);
+                backtrack(res, list, i+1, target-candidates[i], candidates);
+                list.removeLast();
+            }
+            else break;
         }
     }
 }

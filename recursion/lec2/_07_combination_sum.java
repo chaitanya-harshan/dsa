@@ -25,50 +25,64 @@ Input: candidates = [2], target = 1
 Output: []
 
 https://leetcode.com/problems/combination-sum/
+https://youtu.be/GBKI9VSKdGg - neetcode
  */
 package recursion.lec2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class _07_combination_sum {
 
     public static void main(String[] args) {
         int[] nums = {2,3,6,7};
-        List<List<Integer>> list = generateCombinationSum(nums, 7);
-        for (List<Integer> inner : list) {
-            System.out.println(inner);
-        }
-        
+        List<List<Integer>> list = combinationSum(nums, 7);
+        System.out.println(list);
     }
 
-    public static List<List<Integer>> generateCombinationSum(int[] nums, int target) {
-        List<List<Integer>> result = new ArrayList<>();
-        generate(result, new ArrayList<>(), 0, target, nums);
-        return result;
+    public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        backtrack(res, new ArrayList<>(), candidates, 0, target);
+        return res;
     }
-    
-    
-    public static void generate(List<List<Integer>> result, List<Integer> list, int i, int target, int[] nums) {
-        // if we find the sum (target becomes 0) then we dont need to do further recursion calls in that particual tree track
+
+    static void backtrack(List<List<Integer>> res, List<Integer> list, int[] candidates, int k, int target) {
         if (target == 0) {
-            result.add(new ArrayList<>(list));
+            res.add(new ArrayList<>(list));
             return;
         }
-        if (i == nums.length) return;
-        // if (i == nums.length) {
-        //     if (target == 0) {
-        //         result.add(new ArrayList<>(list));
-        //     }
-        //     return;
+        if (k == candidates.length) return;
+
+        // if (target > 0) {
+        //     list.add(candidates[k]);
+        //     backtrack(res, list, candidates, k, target-candidates[k]);
+        //     list.removeLast();
+
+        //     backtrack(res, list, candidates, k+1, target);
         // }
-        
-        if (nums[i] <= target) {
-            list.add(nums[i]);
-            generate(result, list, i, target-nums[i], nums);
+
+        if (candidates[k] <= target) {
+            list.add(candidates[k]);
+            backtrack(res, list, candidates, k, target-candidates[k]);
             list.removeLast();
         }
 
-        generate(result, list, i+1, target, nums);
+        backtrack(res, list, candidates, k+1, target);
     }
 }
+
+// it's a binary => take it(the current index num) or skip(dont add the curr num) and go to next index
+/*
+                                  abcd
+
+                                   [],0
+                 [a],0                                 [],1
+      [aa],0              [a],1              [b],1               [],2
+[aaa],0  [aa],1       [ab],1  [a],2      [bb],1  [b],2        [c],2  [],3 
+.
+.
+. continue
+if by adding nums[i] to sum, sum exceeds target then we return
+*/
+
