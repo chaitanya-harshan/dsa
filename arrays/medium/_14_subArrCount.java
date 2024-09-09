@@ -14,7 +14,9 @@ public class _14_subArrCount {
         for (int i=0; i<nums.length; i++) {
             sum += nums[i];
             if (sum == k) cnt++;
-            
+            // ************here u cant do if else becasue evenif sum == k there might 
+            // be smaller sub arr of subecasue of negative nums
+            // other way is just add map.put(0,1) before the for loop
             if (i != 0 && map.containsKey(sum-k)) {
                 cnt += map.get(sum-k);
             }
@@ -26,6 +28,18 @@ public class _14_subArrCount {
             else map.put(sum, 1);
         }
         return cnt;
+
+        //             /\
+        //            /  \
+        //       /\  /    |
+        //    __/  \/     |
+        //   a  b   c     d
+        
+        //   sum(d-a) == sum(d-b) == sum[d-c]
+
+
+
+
         // 1 2 3 -3   (1 1 1)  --> sum = 3
             // 1 2   (3 -3 1 1 1)  --> sum = 3
                 
