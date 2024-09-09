@@ -13,8 +13,8 @@ public class _02_word_search {
 
         for (int i=0; i<r; i++) {
             for (int j=0; j<c; j++) {
-                if (board[i][j] == word.charAt(0) && 
-                    dfs(i, j, 0, board, word, used, r, c) == true) return true;
+                if ( board[i][j] == word.charAt(0) && 
+                    dfs(i, j, 0, board, word, used, r, c) == true ) return true;
             }
         }
         return false;

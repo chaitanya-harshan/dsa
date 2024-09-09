@@ -1,6 +1,6 @@
 package arrays.sums & subArrays;
 
-public class twoSum_2_sorted_arr {
+public class _2_sum_II_sorted_arr {
     public int[] twoSum(int[] numbers, int target) {
         int low = 0, high = numbers.length-1;
         while (low <= high) {
