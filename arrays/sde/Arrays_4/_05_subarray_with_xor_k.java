@@ -1,5 +1,7 @@
 package arrays.sde.Arrays_4;
 
+import java.util.HashMap;
+
 public class _05_subarray_with_xor_k {
     
     public static int subarraysWithSumK(int []a, int b) {
@@ -18,7 +20,8 @@ public class _05_subarray_with_xor_k {
 
             // this is not a if else becasue even if == target the curr sum needs to be 
             // added for to check for future checks for new sub array as we proceed
-            if (i != 0 && map.containsKey(xor ^ b)) {
+            // If A^target(b) = xor:    xor^b --> A 
+            if (map.containsKey(xor ^ b)) {
                 cnt += map.get(xor ^ b);
             }
 
@@ -40,7 +43,8 @@ public class _05_subarray_with_xor_k {
 
 /*
 https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqazg2M0NmYktuQlZEZE5MS1FKaTF3bXJWUExtQXxBQ3Jtc0ttTUw2eXlPTUlSYUVRU1FVZElxQ3RTZFRrWllBTGdzVXFpc1FjZEZiV2g1bUdEX01nNE5vUTdmZlJuRWxMZXVYd3F2ajdtSEhjMmhKZE1ndWNBMk85bjlqQl90ZVdrVU9XdFJhcTh6bUVSX3UzMWdtVQ&q=https%3A%2F%2Fbit.ly%2F3jLfElm&v=eZr-6p0B7ME
- * Given an array ‘A’ consisting of ‘N’ integers and an integer ‘B’, find the number of subarrays of array ‘A’ whose bitwise XOR( ⊕ ) of all elements is equal to ‘B’.
+ * Given an array ‘A’ consisting of ‘N’ integers and an integer ‘B’, find the number of subarrays of array ‘A’ 
+ * whose bitwise XOR( ⊕ ) of all elements is equal to ‘B’.
 A subarray of an array is obtained by removing some(zero or more) elements from the front and back of the array.
 
 

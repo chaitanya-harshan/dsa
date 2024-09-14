@@ -1,4 +1,4 @@
-package arrays.medium;
+package arrays.sums & subArrays;
 
 import java.util.HashMap;
 
@@ -7,6 +7,7 @@ public class subArrCount {
         // you need to watch strivers video to understand
         // time stamp included in the video - 10:42
         // https://youtu.be/xvNwoz-ufXA?si=fOC9hcGBnBDthiIY&t=642
+        // https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbE1UX2RYUENRNXJNUGZIRTd5WmFEdTNtT3VYUXxBQ3Jtc0ttX1h6Y2JLQ1FzWmtJeGpFNXhvNkNSMzlPTHlLTENUbHRjUTVNXzJhRUJyS2V1VTVlWlhzOHFRQTBlc3hhRVFCbmd1Q3dwZWQtWTBvQ3oxQVRFQzB2bkI3dE1WbnliTFBVQWFYQWM1dktJRldvQnM2bw&q=http%3A%2F%2Fbit.ly%2F3Kn10eZ&v=xvNwoz-ufXA
         HashMap<Integer, Integer> map = new HashMap<>();
         int sum = 0;
         int cnt = 0;
@@ -15,7 +16,7 @@ public class subArrCount {
             sum += nums[i];
             if (sum == k) cnt++;
             
-            if (i != 0 && map.containsKey(sum-k)) {
+            if (map.containsKey(sum-k)) {
                 cnt += map.get(sum-k);
             }
             // this is not a if else becasue even if == target the curr sum needs to be 
