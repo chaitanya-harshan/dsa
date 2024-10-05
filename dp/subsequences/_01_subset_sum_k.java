@@ -2,7 +2,7 @@ package dp.subsequences;
 
 public class _01_subset_sum_k {
     // almost similar without the first row - https://youtu.be/34l1kTIQCIA
-    
+
     public static boolean subsetSumToK(int n, int k, int arr[]){
         boolean[][] dp = new boolean[n][k+1];
 
