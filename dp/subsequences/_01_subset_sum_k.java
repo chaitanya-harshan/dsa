@@ -1,8 +1,48 @@
 package dp.subsequences;
 
 public class _01_subset_sum_k {
-    // almost similar without the first row - https://youtu.be/34l1kTIQCIA
+    
+    public static void main(String[] args) {
+        System.out.println(isSubsetSum(6, new int[]{3,34,4,12,5,2}, 30));
+    }
 
+    public static Boolean isSubsetSum(int N, int arr[], int sum) {
+        boolean dp[][] = new boolean[N][sum+1];
+        dp[N-1][0] = true;
+        for (int i=1; i<= sum; i++) {
+            dp[N-1][i] = (arr[N-1] == i) ? true : false;
+            if (arr[N-1] < i) break;
+        }
+
+        for (int idx = N-2; idx >= 0; idx--) {
+            for (int k = 0; k <= sum; k++) {
+                if (arr[idx] == k || dp[idx+1][k] == true) dp[idx][k] = true;
+                else if (arr[idx] < k) {
+                    // if (dp[idx+1][k-arr[idx]] == true) 
+                    //     dp[idx][k] = true;
+                    // else dp[idx][k] = false;
+                    dp[idx][k] = dp[idx+1][k-arr[idx]]; 
+                }
+            }
+        }
+        return dp[0][sum];
+    }
+
+    // Input: n = 6, arr[] = {3, 34, 4, 12, 5, 2}, sum = 9
+
+    //          _0_1_2_3_4_5_6_7_8_9_
+    //   3  |    . x . . . . . . x [.]
+    //  34  |    . x . x . x . x x .
+    //   4  |    . x . x . x . x x .
+    //  12  |    . x . x x . x . x x
+    //   5  |    . x . x x . x . x x
+    //   2  |    . x . x x x x x x x
+
+
+
+    
+
+    // almost similar without the first row - https://youtu.be/34l1kTIQCIA
     public static boolean subsetSumToK(int n, int k, int arr[]){
         boolean[][] dp = new boolean[n][k+1];
 
