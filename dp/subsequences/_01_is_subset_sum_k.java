@@ -1,6 +1,8 @@
 package dp.subsequences;
 
-public class _01_subset_sum_k {
+import java.util.HashSet;
+
+public class _01_is_subset_sum_k {
     
     public static void main(String[] args) {
         System.out.println(isSubsetSum(6, new int[]{3,34,4,12,5,2}, 30));
@@ -39,42 +41,11 @@ public class _01_subset_sum_k {
     //   2  |    . x . x x x x x x x
 
 
-
-    
-
-    // almost similar without the first row - https://youtu.be/34l1kTIQCIA
-    public static boolean subsetSumToK(int n, int k, int arr[]){
-        boolean[][] dp = new boolean[n][k+1];
-
-        for (boolean[] row : dp) {
-            row[0] = true;
-        }
-        if (arr[0] <= k) dp[0][arr[0]] = true;
-
-        for (int idx = 1; idx < n; idx++) {
-            for (int target = 1; target <= k; target++) {
-
-                boolean notTaken = dp[idx-1][target];
-                boolean taken = false;
-                if (notTaken == false && arr[idx] <= target) {
-                    taken = dp[idx-1][target-arr[idx]];
-                }
-
-                dp[idx][target] = notTaken || taken;
-
-                if (dp[idx][k] == true) return true;
-            }
-        }
-
-        return dp[n-1][k];
-    }
-}
-
 /*
 https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1
 https://www.codingninjas.com/studio/problems/subset-sum-equal-to-k_1550954?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf
 
- * You are given an array/list ‘ARR’ of ‘N’ positive integers and an integer ‘K’. Your task is to check if there exists a subset in ‘ARR’ with a sum equal to ‘K’.
+    * You are given an array/list ‘ARR’ of ‘N’ positive integers and an integer ‘K’. Your task is to check if there exists a subset in ‘ARR’ with a sum equal to ‘K’.
 
 Note: Return true if there exists a subset with sum equal to ‘K’. Otherwise, return false.
 
@@ -87,4 +58,48 @@ Constraints:
 0 <= ARR[i] <= 10^9
 0 <= K <= 10^3
 
- */
+    */
+
+    // **************** MUCH SIMPLER PROCESS ***********
+    public static Boolean isSubsetSum2(int N, int arr[], int sum) {    
+        int target = sum;
+        HashSet<Integer> dp = new HashSet<>();
+        dp.add(0);
+        for (int i = 0; i < arr.length; i++) {
+            HashSet<Integer> tempdp = new HashSet<>(dp);
+            for (Integer it : tempdp) {
+                if (it + arr[i] == target) return true; 
+                dp.add(it + arr[i]);
+            }
+        }
+        return false;
+    }
+
+    // same process as above but did differently
+    // almost similar in the video without the first row - https://youtu.be/34l1kTIQCIA
+    // public static boolean subsetSumToK(int n, int k, int arr[]){
+    //     boolean[][] dp = new boolean[n][k+1];
+
+    //     for (boolean[] row : dp) {
+    //         row[0] = true;
+    //     }
+    //     if (arr[0] <= k) dp[0][arr[0]] = true;
+
+    //     for (int idx = 1; idx < n; idx++) {
+    //         for (int target = 1; target <= k; target++) {
+
+    //             boolean notTaken = dp[idx-1][target];
+    //             boolean taken = false;
+    //             if (notTaken == false && arr[idx] <= target) {
+    //                 taken = dp[idx-1][target-arr[idx]];
+    //             }
+
+    //             dp[idx][target] = notTaken || taken;
+
+    //             if (dp[idx][k] == true) return true;
+    //         }
+    //     }
+
+    //     return dp[n-1][k];
+    // }
+}
