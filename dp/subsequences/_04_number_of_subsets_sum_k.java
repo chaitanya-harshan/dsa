@@ -26,6 +26,8 @@ public class _04_number_of_subsets_sum_k {
         System.out.println(perfectSum(new int[]{1,0}, 2, 1));
     }
     
+    // --- tabulation---
+    // not working for {1,0} target - 1  (ans is 2 but we get 1)
     public static int perfectSum(int nums[],int n, int sum)	{ 
 	    int[][] dp = new int[n][sum+1];
 	    dp[n-1][0] = 1;
