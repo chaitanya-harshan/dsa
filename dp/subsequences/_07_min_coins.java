@@ -20,7 +20,7 @@ public class _07_min_coins {
                 if (coins[i] <= k) {
                     minCoins = Math.min(minCoins, 1 + dp[k-coins[i]] );
                 }
-                if (coins[i] > amount) break;
+                if (coins[i] > k) break;
             }
             dp[k] = minCoins;
         }
