@@ -18,5 +18,24 @@ public class _02_trim_and_reverse_words_string {
             }
         }
         return str;
+
+        // s = s.trim();
+        // Stack<String> st = new Stack<>();
+        
+        // String word = "";
+        // for (int i=0; i<s.length(); i++) {
+        //     if (s.charAt(i) == ' ') {
+        //         if (!word.isEmpty()) st.push(word);
+        //         word = "";
+        //     }
+        //     else word += s.charAt(i);
+        // }
+        // st.push(word);
+
+        // String res = st.pop();
+        // while (!st.empty()) {
+        //     res += ' ' + st.pop();
+        // }
+        // return res;
     }
 }
