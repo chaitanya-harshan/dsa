@@ -2,10 +2,33 @@ package strings.medium;
 
 public class _04_atoi {
     public static void main(String[] args) {
-        System.out.println(myAtoi("  -123-456"));
+        // System.out.println(myAtoi("  -123-456"));
+        System.out.println(myAtoi(" "));
     }
 
     public static int myAtoi(String s) {
+        s = s.trim();
+        if (s.isEmpty()) return 0;
+        int sign = 1;
+        if (s.charAt(0) == '-') {
+            sign = -1;
+            s = s.substring(1);
+        }
+        else if (s.charAt(0) == '+') s = s.substring(1);
+        
+        long num = 0;
+        for (char c: s.toCharArray()) {
+            if (c < '0' || c > '9') break;
+            
+            num = num*10 + c-'0';
+            if (sign == 1) num = Math.min(Integer.MAX_VALUE, num);
+            else num = Math.min((long)Integer.MAX_VALUE + 1, num);
+        }
+
+        return sign*(int)num;
+    }
+
+    public static int myAtoi1(String s) {
         s = s.trim();
         if (s.length() == 0) return 0;
        
