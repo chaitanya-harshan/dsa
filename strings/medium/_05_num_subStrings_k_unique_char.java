@@ -3,13 +3,42 @@ package strings.medium;
 import java.util.HashMap;
 
 public class _05_num_subStrings_k_unique_char {
+
+    // https://youtu.be/WCyAWsj9sgI - explanation
     public static void main(String[] args) {
         // String str = "urrrzaxxxhjjquooxzgwzpppavcfaxeefnggtsii";
-        String str = "etppnllcaelzqqyjyygzzlmewgbbtumfdjjrkhyibbbrjhoggghvxsggatddbbbpptyeiiualpphh";
+        // String str = "etppnllcaelzqqyjyygzzlmewgbbtumfdjjrkhyibbbrjhoggghvxsggatddbbbpptyeiiualpphh";
         // String str = "aabcc";
         // String str = "aacfssa";
-        System.out.println(countSubStrings(str, 9));
+        String str = "abaaca";
+        System.out.println(countSubStrings(str, 1));
+        // System.out.println(substrCount(str, 1));
     }
+
+    // wont work eg.  aac -> a,aa,a,c = 4
+    // but u will get -> a,aa,[ac]x, c = 3
+    // hence u need to use that weird process below
+    // static int substrCount (String S, int k) {
+    //     // https://www.youtube.com/watch?v=WCyAWsj9sgI
+    //     HashMap<Character, Integer> map = new HashMap<>();
+        
+    //     int cnt = 0;
+    //     int right = 0;
+    //     for (int left = 0; left<S.length(); left++) {
+    //         while (right < S.length() && map.size() <= k) {
+    //             char c = S.charAt(right);
+    //             map.put(c, map.getOrDefault(c,0)+1);
+    //             if (map.size() == k) cnt++;
+    //             right++;
+    //         }
+            
+    //         char leftChar = S.charAt(left);
+    //         map.put(leftChar, map.get(leftChar)-1);
+    //         if (map.get(leftChar) == 0) map.remove(leftChar);
+    //         if (map.size() == k) cnt++;
+    //     }
+    //     return cnt;
+    // }
 
     public static int countSubStrings(String str, int k) {
         // Write your code here.
@@ -22,7 +51,7 @@ public class _05_num_subStrings_k_unique_char {
         
         int count = 0;
         int j = 0;
-        for (int left = 0; left < str.length(); left++) {
+        for (int left = 0; left < str.length()-k; left++) {
             while (j < str.length() && map.size() < k) {
                 char c = str.charAt(j);
                 map.put(c, map.getOrDefault(c, 0) + 1);
