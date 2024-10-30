@@ -10,9 +10,13 @@ public class _05_num_subStrings_k_unique_char {
         // String str = "etppnllcaelzqqyjyygzzlmewgbbtumfdjjrkhyibbbrjhoggghvxsggatddbbbpptyeiiualpphh";
         // String str = "aabcc";
         // String str = "aacfssa";
-        String str = "abaaca";
-        System.out.println(countSubStrings(str, 1));
+        // String str = "abaaca";
+        // String str = "aba";
+        String str = "ecbaddce";
+        System.out.println(countSubStrings(str, 3));
         // System.out.println(substrCount(str, 1));
+        // 6 5 4 2 1
+        // 5 4 2 1
     }
 
     // wont work eg.  aac -> a,aa,a,c = 4
@@ -21,7 +25,6 @@ public class _05_num_subStrings_k_unique_char {
     // static int substrCount (String S, int k) {
     //     // https://www.youtube.com/watch?v=WCyAWsj9sgI
     //     HashMap<Character, Integer> map = new HashMap<>();
-        
     //     int cnt = 0;
     //     int right = 0;
     //     for (int left = 0; left<S.length(); left++) {
@@ -31,7 +34,6 @@ public class _05_num_subStrings_k_unique_char {
     //             if (map.size() == k) cnt++;
     //             right++;
     //         }
-            
     //         char leftChar = S.charAt(left);
     //         map.put(leftChar, map.get(leftChar)-1);
     //         if (map.get(leftChar) == 0) map.remove(leftChar);
@@ -45,27 +47,57 @@ public class _05_num_subStrings_k_unique_char {
         return countSubstringsGreatOrEqual(str, k) - countSubstringsGreatOrEqual(str, k+1);
     }
 
-    public static int countSubstringsGreatOrEqual(String str, int k) {
+    public static int countSubstringsGreatOrEqual(String S, int K) {
         HashMap<Character, Integer> map = new HashMap<>();
-        if (str.length() < k) return 0;
         
-        int count = 0;
-        int j = 0;
-        for (int left = 0; left < str.length()-k; left++) {
-            while (j < str.length() && map.size() < k) {
-                char c = str.charAt(j);
-                map.put(c, map.getOrDefault(c, 0) + 1);
-                j++;
+        int cnt = 0;
+        int right = 0;
+        // "eedf" & "edf" are 2 diff things so u need to count them diff
+        // hence u can't use for (right ; ; ) as it wont check left for the above given example
+        for (int left = 0; left<S.length(); left++) {
+            while (right < S.length() && map.size() < K) {
+                char c = S.charAt(right);
+                map.put(c, map.getOrDefault(c,0)+1);
+                right++;
             }
-            if (map.size() == k) {
-                count += str.length()-j+1;
+            
+            if (map.size() == K) {
+                cnt += S.length() - right + 1;
+                System.out.print(S.length() - right + 1 +" ");
             }
-
-            char ch = str.charAt(left);
-            map.put(ch, map.get(ch)-1);
-            if (map.get(ch) == 0) map.remove(ch);           
+            
+            char leftCh = S.charAt(left);
+            map.put(leftCh, map.get(leftCh)-1);
+            if (map.get(leftCh) == 0) map.remove(leftCh);
         }
-        return count;
+        System.out.println();
+        return cnt;
+
+
+        // THIS WONT WORK BECASUE this will stop at 'ddce' when we should go still 'dce' in "ecbaddce" 
+        // therefore it will give count with 1 value less.
+        // 
+        // HashMap<Character, Integer> map = new HashMap<>();
+        // int count = 0;
+        // 
+        // int left = 0;
+        // for (int right=0; right<S.length(); right++) {
+        //     char c = S.charAt(right);
+        //     map.put(c, map.getOrDefault(c,0)+1 );
+        // 
+        //     if (map.size() == K) count += S.length()-right;
+        //     if (count > 0) System.out.print(S.length()-right +" ");
+        // 
+        //     while (map.size() == K) {
+        //         char left_ch = S.charAt(left);
+        //         map.put(left_ch, map.get(left_ch)-1);
+        //         if (map.get(left_ch) == 0) map.remove(left_ch);
+        //         left++;
+        //     }
+        // }
+        // System.out.println();
+        // return count;
+
     }
 
     // Wrong code
