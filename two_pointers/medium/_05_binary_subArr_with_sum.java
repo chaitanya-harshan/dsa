@@ -1,8 +1,6 @@
 package two_pointers.medium;
 
-/**
- * _05_binary_subArr_with_sum
- */
+// similar to that weird string problem
 public class _05_binary_subArr_with_sum {
 
     public static void main(String[] args) {

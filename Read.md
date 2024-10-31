@@ -16,3 +16,10 @@ HashSet<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toCollecti
 
 find . -type f | wc -l      ---- total number of files
 ls | wc -l                       folders i think
+
+
+
+weird Problems:
+   two-pointers/ medium / 05  ~~~ strings/medium/ 05
+
+   cnt of subArr with sum k           cnt of subStr with K unique chars
