@@ -11,42 +11,42 @@ public class _05_num_subStrings_k_unique_char {
         // String str = "aabcc";
         // String str = "aacfssa";
         // String str = "abaaca";
-        // String str = "aba";
-        String str = "ecbaddce";
-        System.out.println(countSubStrings(str, 3));
+        String str = "aba";
+        // String str = "ecbaddce";
+        System.out.println(countSubStrings(str, 2));
         // System.out.println(substrCount(str, 1));
         // 6 5 4 2 1
         // 5 4 2 1
     }
 
-    // wont work eg.  aac -> a,aa,a,c = 4
-    // but u will get -> a,aa,[ac]x, c = 3
-    // hence u need to use that weird process below
-    // static int substrCount (String S, int k) {
-    //     // https://www.youtube.com/watch?v=WCyAWsj9sgI
-    //     HashMap<Character, Integer> map = new HashMap<>();
-    //     int cnt = 0;
-    //     int right = 0;
-    //     for (int left = 0; left<S.length(); left++) {
-    //         while (right < S.length() && map.size() <= k) {
-    //             char c = S.charAt(right);
-    //             map.put(c, map.getOrDefault(c,0)+1);
-    //             if (map.size() == k) cnt++;
-    //             right++;
-    //         }
-    //         char leftChar = S.charAt(left);
-    //         map.put(leftChar, map.get(leftChar)-1);
-    //         if (map.get(leftChar) == 0) map.remove(leftChar);
-    //         if (map.size() == k) cnt++;
-    //     }
-    //     return cnt;
-    // }
-
     public static int countSubStrings(String str, int k) {
-        // Write your code here.
-        return countSubstringsGreatOrEqual(str, k) - countSubstringsGreatOrEqual(str, k+1);
+        // return countSubstringsGreatOrEqual(str, k) - countSubstringsGreatOrEqual(str, k+1);
+        return countLessOrEq(str, k) - countLessOrEq(str, k-1);
     }
 
+    static int countLessOrEq(String S, int K) {
+        if (K < 0) return 0;
+        int l = 0, cnt = 0;
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for (int r = 0; r < S.length(); r++) {
+            char c = S.charAt(r);
+            map.put(c, map.getOrDefault(c, 0)+1);
+
+            while (map.size() > K) {
+                char ch = S.charAt(l);
+                map.put(ch, map.get(ch)-1);
+                if (map.get(ch) == 0) map.remove(ch);
+                l++;
+            }
+
+            cnt += r-l+1;
+        }
+        return cnt;
+    }
+
+
+    // BAD appraoch (it's similar but this is weird)
     public static int countSubstringsGreatOrEqual(String S, int K) {
         HashMap<Character, Integer> map = new HashMap<>();
         
@@ -99,9 +99,9 @@ public class _05_num_subStrings_k_unique_char {
         // return count;
 
     }
+    
 
     // Wrong code
-
     // public static int countSubStrings1(String str, int k) {
     //     // Write your code here.
     //     HashMap<Character, Integer> map = new HashMap<>();
@@ -136,5 +136,30 @@ public class _05_num_subStrings_k_unique_char {
     //         }
     //     }
     //     return count;
+    // }
+
+
+    // wont work eg.  aac -> a,aa,a,c = 4
+    // but u will get -> a,aa,[ac]x, c = 3
+    // hence u need to use that weird process below
+    //
+    // static int substrCount (String S, int k) {
+    //     // https://www.youtube.com/watch?v=WCyAWsj9sgI
+    //     HashMap<Character, Integer> map = new HashMap<>();
+    //     int cnt = 0;
+    //     int right = 0;
+    //     for (int left = 0; left<S.length(); left++) {
+    //         while (right < S.length() && map.size() <= k) {
+    //             char c = S.charAt(right);
+    //             map.put(c, map.getOrDefault(c,0)+1);
+    //             if (map.size() == k) cnt++;
+    //             right++;
+    //         }
+    //         char leftChar = S.charAt(left);
+    //         map.put(leftChar, map.get(leftChar)-1);
+    //         if (map.get(leftChar) == 0) map.remove(leftChar);
+    //         if (map.size() == k) cnt++;
+    //     }
+    //     return cnt;
     // }
 }
