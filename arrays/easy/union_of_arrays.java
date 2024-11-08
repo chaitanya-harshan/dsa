@@ -1,6 +1,6 @@
 package arrays.easy;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
@@ -9,12 +9,48 @@ import java.util.HashSet;
 public class union_of_arrays {
 
     public static void main(String[] args) {
-            int[] arr1 = {1,2,3,4,5};
-            int[] arr2 = {2,2,3,6,4,5};
-            System.out.println(Arrays.toString(union(arr1,arr2)));
+        // int[] arr1 = {1,2,3,4,5};
+        // int[] arr2 = {2,2,3,6,4,5};
+        int[] arr1 = {-8,-3,-3,-2,0,1,2,2,6};
+        int[] arr2 = {-9,-9,0};
+        // System.out.println(Arrays.toString(union(arr1,arr2)));
+        System.out.println(union(arr1,arr2));
+
+    }
+
+    public static ArrayList<Integer> union(int a[], int b[]) {
+        // add your code here
+        ArrayList<Integer> union = new ArrayList<>();
+        int l = 0, r = 0;
+        
+        while (l < a.length && r < b.length) {
+            if (a[l] <= b[r]) {
+                if (union.size() == 0 || union.get(union.size()-1) != a[l]) {
+                    union.add(a[l]);
+                }
+                l++;
+            }
+            else {
+                if (union.size() == 0 || union.get(union.size()-1) != b[r]) {
+                    union.add(b[r]);
+                }
+                r++;
+            }
         }
         
-    static int[] union(int[] arr1, int[] arr2) {
+        while (l < a.length) {
+            union.add(a[l]);
+            l++;
+        }
+        while (r < b.length) {
+            union.add(b[r]);
+            r++;
+        }
+        
+        return union;
+    }
+        
+    static int[] union1(int[] arr1, int[] arr2) {
         HashSet<Integer> freq = new HashSet<>();
         // ArrayList<Integer> union = new ArrayList<>();
 
