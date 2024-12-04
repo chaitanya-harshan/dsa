@@ -2,7 +2,7 @@ public class _01_climbing_stairs {
     
     public static void main(String[] args) {
         System.out.println(climbStairs(12));
-        System.out.println(climbStairs(1));
+        System.out.println(climbStairs(4));
     }
 
     static int climbStairs(int n) {
