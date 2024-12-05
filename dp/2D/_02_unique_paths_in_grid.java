@@ -1,4 +1,5 @@
 public class _02_unique_paths_in_grid {
+    // https://leetcode.com/problems/unique-paths/description/
 
     public int uniquePaths(int m, int n) {
         // tabulation using space optimization
@@ -16,14 +17,14 @@ public class _02_unique_paths_in_grid {
 
         // Math: Factorial => NCr
 
-        // int N = m-1 + n-1;
-        // int r = m-1;
-        // double result = 1;
-        // for (int i = 1; i <= r; i++) {
-        //     // result *= ((double)(N-r+i) / i);
-        //     // result = (double)(N-r+i) / i;
-        //     result = result * (N-r+i)/i;
-        // }
-        // return (int)result;
+        int N = m-1 + n-1;
+        int r = m-1;
+        double result = 1;
+        for (int i = 1; i <= r; i++) {
+            // result *= ((double)(N-r+i) / i);
+            // result = (double)(N-r+i) / i;
+            result = result * (N-r+i)/i;
+        }
+        return (int)result;
     }
 }

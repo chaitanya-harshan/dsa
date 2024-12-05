@@ -1,6 +1,5 @@
-/**
- * _01_ninja_training
- */
+package dp.2D;
+
 public class _01_ninja_training {
 
     public int maximumPoints(int arr[][], int N) {
@@ -27,8 +26,10 @@ public class _01_ninja_training {
 
 /*
  * A Ninja has an ‘N’ Day training schedule. 
- * He has to perform one of these three activities (Running, Fighting Practice, 
- * or Learning New Moves) each day. There are merit points associated with performing an activity each day. The same activity can’t be performed on two consecutive days. We need to find the maximum merit points the ninja can attain in N Days.
+ * He has to perform one of these three activities (Running, Fighting Practice, or Learning New Moves) 
+ * each day. There are merit points associated with performing an activity each day. 
+ * The same activity can’t be performed on two consecutive days. We need to find the maximum 
+ * merit points the ninja can attain in N Days.
 
 We are given a 2D Array POINTS of size ‘N*3’ which tells us the merit point 
 of specific activity on that particular day. Our task is to calculate the maximum 
@@ -44,5 +45,5 @@ Output:11
 20 50 80
 30 60 90
 
-Output - 210
+Output- 210
  */
