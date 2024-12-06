@@ -7,7 +7,7 @@ An Anagram is a word or phrase formed by rearranging the letters of a different 
 Input: strs = ["eat","tea","tan","ate","nat","bat"]
 Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
  */
-package extras;
+package _extras;
 
 import java.util.ArrayList;
 import java.util.Arrays;
