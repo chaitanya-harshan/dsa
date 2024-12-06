@@ -11,7 +11,7 @@ public class _03_unique_paths_with_obstacles {
 
             for (int j = n-1; j>=0; j--) {
                 if (obstacleGrid[i][j] == 1) {
-                    dp[j] = 0; // for case where the end is a obstacle [[0,0],[0,1]]
+                    dp[j] = 0; // for case where the end is also a obstacle [[0,0],[0,1]]
                     continue;
                 } 
                 dp[j] += prev[j];

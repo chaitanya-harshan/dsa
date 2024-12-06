@@ -20,6 +20,12 @@ ls | wc -l                       folders i think
 
 
 weird Problems:
-   two-pointers/ medium / 05  ~~~ strings/medium/ 05
+- two-pointers/ medium / 05  ~~~ strings/medium/ 05
 
-   cnt of subArr with sum k           cnt of subStr with K unique chars
+- cnt of subArr with sum k
+- cnt of subStr with K unique chars
+
+
+_Arrays_
+
+-> return Arrays.stream(prev).min().getAsInt(); ---- to find min value and return as int.

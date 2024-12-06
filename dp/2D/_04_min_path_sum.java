@@ -1,8 +1,6 @@
 
 import java.util.Arrays;
 
-
-
 public class _04_min_path_sum {
     public static void main(String[] args) {
         int[][] grid = {{1,3,1},{1,5,1},{4,2,1}};
@@ -46,7 +44,8 @@ public class _04_min_path_sum {
 /*
  * 64. Minimum Path Sum
  * https://leetcode.com/problems/minimum-path-sum/description/
-Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path.
+Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right, 
+which minimizes the sum of all numbers along its path.
 
 Note: You can only move either down or right at any point in time.
 
