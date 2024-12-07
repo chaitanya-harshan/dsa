@@ -5,29 +5,28 @@ import java.util.HashSet;
 public class _01_is_subset_sum_k {
     
     public static void main(String[] args) {
-        System.out.println(isSubsetSum(6, new int[]{3,34,4,12,5,2}, 30));
+        System.out.println(isSubsetSum1(6, new int[]{3,34,4,12,5,2}, 30));
     }
 
-    public static Boolean isSubsetSum(int N, int arr[], int sum) {
-        boolean dp[][] = new boolean[N][sum+1];
-        dp[N-1][0] = true;
-        for (int i=1; i<= sum; i++) {
-            dp[N-1][i] = (arr[N-1] == i) ? true : false;
-            if (arr[N-1] < i) break;
-        }
-
-        for (int idx = N-2; idx >= 0; idx--) {
-            for (int k = 0; k <= sum; k++) {
-                if (arr[idx] == k || dp[idx+1][k] == true) dp[idx][k] = true;
-                else if (arr[idx] < k) {
-                    // if (dp[idx+1][k-arr[idx]] == true) 
-                    //     dp[idx][k] = true;
-                    // else dp[idx][k] = false;
-                    dp[idx][k] = dp[idx+1][k-arr[idx]]; 
-                }
+    public static boolean isSubsetSum1(int n, int arr[], int target){
+        boolean[] prev = new boolean[target+1];
+        prev[0] = true;
+        if (arr[n-1] <= target) prev[arr[n-1]] = true;
+        
+        for (int i=n-2; i>=0; i--) {
+            boolean[] dp = new boolean[target+1];
+            dp[0] = true;
+            int num = arr[i];
+            
+            for (int j=1; j<target+1; j++) {
+                if (num == j || prev[j] == true) dp[j] = true;
+                else if (j > num && prev[j-num] == true) 
+                        dp[j] = true;
             }
+            prev = dp;
         }
-        return dp[0][sum];
+        
+        return prev[target];
     }
 
     // Input: n = 6, arr[] = {3, 34, 4, 12, 5, 2}, sum = 9
