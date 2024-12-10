@@ -19,9 +19,10 @@ public class _01_is_subset_sum_k {
             int num = arr[i];
             
             for (int j=1; j<target+1; j++) {
-                if (num == j || prev[j] == true) dp[j] = true;
-                else if (j > num && prev[j-num] == true) 
-                        dp[j] = true;
+                if (num == j || prev[j] == true) 
+                    dp[j] = true;
+                else if (j > num && prev[j-num] == true) // else is required and prev[j-num] checkign is optional
+                    dp[j] = true;
             }
             prev = dp;
         }

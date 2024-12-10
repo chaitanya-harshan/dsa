@@ -9,16 +9,39 @@ public class _03_ {
         int[] nums = {1,2,10,1,9,10,5};
         System.out.println(minimumDifference(nums));
     }
-    public static int minimumDifference(int[] nums) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static int minimumDifference1(int[] nums) {
         int sum = Arrays.stream(nums).sum();
         int len = nums.length;
-        // System.out.println(len+" "+ sum);
         int[][] dp = new int[len][sum+1];
         Arrays.stream(dp).forEach(row -> Arrays.fill(row, Integer.MIN_VALUE));
 
         return helper(0, len/2, 0, nums, sum, dp);
     }
-
     static int helper(int i, int n, int k, int[] nums, int sum, int[][] dp) {
         if (n == 0) return Math.abs(sum - 2*k);
         if (i == nums.length) return Integer.MAX_VALUE;

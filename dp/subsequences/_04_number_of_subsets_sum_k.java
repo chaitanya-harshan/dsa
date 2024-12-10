@@ -22,7 +22,7 @@ public class _04_number_of_subsets_sum_k {
         int[] nums = {5,2,3,10,6,8};
         int sum = 10;
         // System.out.println(subsetsWithSumK(nums, sum));
-        // System.out.println(perfectSum(nums, nums.length, sum));
+        System.out.println(perfectSum(nums, nums.length, sum));
         System.out.println(perfectSum(new int[]{1,0}, 2, 1));
     }
     
