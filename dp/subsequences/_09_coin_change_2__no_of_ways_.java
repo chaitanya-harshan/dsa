@@ -1,32 +1,50 @@
 package dp.subsequences;
 
+import java.util.Arrays;
+
 public class _09_coin_change_2__no_of_ways_ {
     
     // it's basically a number of subsets which can form amount k
     // tabulation - space optimized 
     public int change(int amount, int[] coins) {
         int n = coins.length;
-        int[] dp = new int[amount + 1];
-        dp[0] = 1;
-        for (int k=1; k<= amount; k++) {
-            if (k % coins[n-1] == 0) dp[k] = 1;
-        }
+        int[] prev = new int[amount+1];
+        // for (int k=1; k<= amount; k++) {
+        //     if (k % coins[n-1] == 0) dp[k] = 1;
+        // }
+        // i = n-2 if u use this code
 
-        for (int i = n-2; i >= 0; i--) {
-            int[] temp = new int[amount+1];
-            temp[0] = 1;
+        for (int i=n-1; i>=0; i--) {
+            int[] dp = new int[amount + 1];
+            dp[0] = 1;
             for (int k=1; k<= amount; k++) {
-                int notTaken = dp[k];
-                int taken = 0;
-                if (coins[i] <= k) {
-                    taken = temp[k-coins[i]];
-                }
-
-                temp[k] = notTaken + taken;
+                if (k >= coins[i]) dp[k] += dp[k-coins[i]]; // taken
+                dp[k] += prev[k]; // notTaken
             }
-            dp = temp;
+            prev = dp;
         }
-        return dp[amount];
+        return prev[amount];
+    }
+
+    public static int change_recursion(int amount, int[] coins) {
+        int n =  coins.length;
+        int[][] dp = new int[n][amount+1];
+        Arrays.stream(dp).forEach(row -> Arrays.fill(row,-1));
+
+        return backtrack(0,amount, coins, dp);
+    }
+
+    public static int backtrack(int c, int k, int[] coins, int[][] dp) {
+        if (k < 0) return 0;
+        if (k == 0) return 1;
+        if (c == coins.length) return 0;
+        if (dp[c][k] != -1) return dp[c][k];
+
+        int taken = 0;
+        if (k >= coins[c]) taken = backtrack(c, k-coins[c], coins, dp);
+        int notTaken = backtrack(c+1, k, coins, dp);
+
+        return dp[c][k] = taken + notTaken;
     }
 }
 
