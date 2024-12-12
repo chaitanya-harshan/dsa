@@ -1,4 +1,4 @@
-package z_exps.infosys;
+package _extras.z_exps.infosys;
 
 public class chess_board_2_piece_combinations {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package z_hard;
+package _extras.z_hard;
 
 import java.util.ArrayList;
 import java.util.Arrays;

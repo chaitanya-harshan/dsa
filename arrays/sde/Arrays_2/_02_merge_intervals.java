@@ -2,7 +2,6 @@ package arrays.sde.Arrays_2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 public class _02_merge_intervals {
