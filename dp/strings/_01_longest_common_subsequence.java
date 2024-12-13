@@ -4,8 +4,11 @@ public class _01_longest_common_subsequence {
 
     // https://youtu.be/NPZn9jBrX8U - striver
     // watch striver if u feel it's hard else neetcode but neetcode did it in reverse from start to end
-    
-    public int longestCommonSubsequence(String text1, String text2) {
+    public static void main(String[] args) {
+        System.out.println(longestCommonSubsequence("abaaa", "baabaca"));
+    }
+
+    public static int longestCommonSubsequence(String text1, String text2) {
         int n = text1.length(), m = text2.length();
         int[] prev = new int[m+1];
         
