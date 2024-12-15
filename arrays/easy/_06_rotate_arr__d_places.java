@@ -1,7 +1,7 @@
 package arrays.easy;
 
 // Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
-public class rotate {
+public class _06_rotate_arr__d_places {
     public void rotateArray(int[] nums, int k) {
         k = k % nums.length;
         reverse(nums, 0, nums.length-1);

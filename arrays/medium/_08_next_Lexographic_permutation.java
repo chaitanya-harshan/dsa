@@ -10,6 +10,13 @@ public class _08_next_Lexographic_permutation {
         System.out.println(Arrays.toString(arr));
     }
 
+    // watch xavier elon video
+    // https://youtu.be/CjE1wQESlkI
+    // eg:  15 8 (4) 7 6 (5) 3 1
+    // find ele:4 idx
+    // find ele > 4 idx which is ele:5 idx
+    // swap them
+    // reverse the arr from ele 4 which will be now 5 to end of the arr
     public static void nextPermutation(int[] nums) {
         int index = -1;
         int n = nums.length;
