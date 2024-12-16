@@ -33,7 +33,8 @@ class itemComparator implements Comparator<Item> {
 public class _02_knapsack_weigths_max_value {
     
     public static double fractionalKnapsack(int w, Item arr[], int n) {
-        Arrays.sort(arr, new itemComparator());
+        // Arrays.sort(arr, new itemComparator());
+        Arrays.sort(arr, (a, b) -> (double)a.value/a.weight >= (double)b.value/b.weight ? -1 : 1);
         double value = 0;
         for (Item item : arr) {
             if (item.weight <= w) {
