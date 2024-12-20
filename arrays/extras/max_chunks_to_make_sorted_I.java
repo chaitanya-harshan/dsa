@@ -1,4 +1,4 @@
-package arrays.neetcode.extras;
+package arrays.extras;
 
 public class max_chunks_to_make_sorted_I {
     

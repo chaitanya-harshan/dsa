@@ -1,4 +1,4 @@
-package arrays.neetcode.extras;
+package arrays.extras;
 
 public class non_decreasing_array {
 
